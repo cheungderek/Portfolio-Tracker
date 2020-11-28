@@ -35,7 +35,7 @@ def getdata(stock):
     # Income Statement Group of Items
     # IS = requests.get(f"https://financialmodelingprep.com/api/v3/financials/income-statement/{stock}?period=quarter&apikey=d50a1da239d59fb8401cba97e42c046e")
     IS = requests.get(
-        f"https://financialmodelingprep.com/api/v3/financials/income-statement/{stock}?period=quarter&apikey=b78085543053f2fc69099f1c23179c82")
+        f"https://financialmodelingprep.com/api/v3/financials/income-statement/{stock}?period=quarter&apikey={apiKey1}")
     IS = IS.json()
 
     # Most Recent Quarterly Revenue
@@ -44,7 +44,7 @@ def getdata(stock):
     # Company Profile Group of Items
     # company_info = requests.get(f"https://financialmodelingprep.com/api/v3/company/profile/{stock}?apikey=d50a1da239d59fb8401cba97e42c046e")
     company_info = requests.get(
-        f"https://financialmodelingprep.com/api/v3/company/profile/{stock}?apikey=b78085543053f2fc69099f1c23179c82")
+        f"https://financialmodelingprep.com/api/v3/company/profile/{stock}?apikey={apiKey1}")
     company_info = company_info.json()
     # Chief Executive Officer
     ceo = company_info['profile']['ceo']
