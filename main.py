@@ -4,11 +4,12 @@
 #
 import requests
 import pandas as pd
+import openpyxl
 
-# API key (derek.cl.cheung@gmail.com) - d50a1da239d59fb8401cba97e42c046e
-# API key (wlan04@hotmail.com ) - b78085543053f2fc69099f1c23179c82
+gmail_key = 'd50a1da239d59fb8401cba97e42c046e'
+wlan04_key = 'b78085543053f2fc69099f1c23179c82'
 
-apiKey1 = 'b78085543053f2fc69099f1c23179c82'
+apiKey1 = gmail_key
 
 # https://financialmodelingprep.com/api/v3/quote/AAPL?apikey=d50a1da239d59fb8401cba97e42c046e
 
@@ -52,7 +53,7 @@ def getdata(stock):
     return (share_price, cash, debt, qRev, ceo)
 
 
-tickers = ('AAPL', 'MSFT', 'GOOG', 'T', 'CSCO', 'INTC', 'ORCL', 'AMZN', 'FB', 'TSLA', 'NVDA')
+tickers = ('AAPL', 'MSFT')
 
 data = map(getdata, tickers)
 dataList = list(map(getdata,tickers))
@@ -63,5 +64,9 @@ df = pd.DataFrame(data, columns=['Stock Price', 'Total Cash', 'Total Debt', 'Q3 
 
 print(df)
 
+# Writing to Excel
+writer = pd.ExcelWriter('example.xlsx')
+df.to_excel(writer, 'Statistics')
+writer.save()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
