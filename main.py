@@ -1,6 +1,7 @@
 # https://medium.com/analytics-vidhya/building-an-intrinsic-value-calculator-with-python-7986833962cd
 # https://medium.com/swlh/automating-your-stock-portfolio-research-with-python-for-beginners-912dc02bf1c2
 # Derek - 30 Nov 2020 after learning the youtUbe GIT toturial
+# after dinner
 #
 import requests
 import pandas as pd
